@@ -128,6 +128,7 @@ public class Weather extends UnlockableContent{
             float x = (rand.random(0f, world.unitWidth()) + Time.time * windx * scl2);
             float y = (rand.random(0f, world.unitHeight()) + Time.time * windy * scl);
             float alpha = rand.random(minAlpha, maxAlpha);
+            float rotation = rand.random(0f, 360f);
 
             x += Mathf.sin(y, rand.random(sinSclMin, sinSclMax), rand.random(sinMagMin, sinMagMax));
 
@@ -140,7 +141,7 @@ public class Weather extends UnlockableContent{
 
             if(Tmp.r3.setCentered(x, y, size).overlaps(Tmp.r2)){
                 Draw.alpha(alpha * opacity);
-                Draw.rect(region, x, y, size, size);
+                Draw.rect(region, x, y, size, size, rotation);
             }
         }
     }
